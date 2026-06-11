@@ -1,0 +1,180 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Poppins", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-neon: var(--neon);
+  --color-mint: var(--mint);
+  --color-deep: var(--deep);
+
+  --shadow-glow: 0 0 30px color-mix(in oklab, var(--accent) 45%, transparent);
+  --shadow-glow-lg: 0 0 60px color-mix(in oklab, var(--accent) 55%, transparent);
+
+  --animate-fade-in: fade-in 0.7s ease-out both;
+  --animate-slide-up: slide-up 0.8s cubic-bezier(.2,.7,.2,1) both;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
+  --animate-shimmer: shimmer 10s linear infinite;
+}
+
+:root {
+  --radius: 0.875rem;
+
+  /* Brand palette - Aurora Boreal Style */
+  --bg-base: #030712;                /* Preto profundo espacial */
+  --brand-deep: #0d2826;             /* Verde-escuro místico de fundo */
+  --brand-accent: #00ffcc;           /* Ciano/Verde neon brilhante da aurora */
+  --brand-mint: #a7f3d0;             /* Verde menta suave e gélido para textos */
+
+  --background: #030712;
+  --foreground: #e2fef4;             /* Branco gélido levemente esverdeado */
+
+  --card: rgba(13, 40, 38, 0.35);    /* Vidro escuro esmeralda */
+  --card-foreground: #a7f3d0;
+  --popover: #060f11;
+  --popover-foreground: #a7f3d0;
+
+  --primary: #00ffcc;                /* Cor principal viva aurora */
+  --primary-foreground: #01040a;
+  --secondary: #0f766e;              /* Tom esmeralda escuro */
+  --secondary-foreground: #e2fef4;
+
+  --muted: rgba(167, 243, 208, 0.04);
+  --muted-foreground: rgba(167, 243, 208, 0.6);
+
+  --accent: #00ffcc;
+  --accent-foreground: #01040a;
+
+  --neon: #00ffcc;
+  --mint: #a7f3d0;
+  --deep: #0f766e;
+
+  /* Mantidos intactos (Branco e Vermelho) */
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: #fff;
+  
+  --border: rgba(0, 255, 204, 0.15);
+  --input: rgba(0, 255, 204, 0.1);
+  --ring: #00ffcc;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px color-mix(in oklab, var(--accent) 35%, transparent); }
+  50% { box-shadow: 0 0 50px color-mix(in oklab, var(--accent) 70%, transparent); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    /* Efeito de iluminação suave simulando ondas da aurora no céu */
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 255, 204, 0.18), transparent),
+      radial-gradient(ellipse 60% 40% at 85% 20%, rgba(15, 118, 110, 0.25), transparent),
+      radial-gradient(ellipse 60% 40% at 15% 70%, rgba(0, 255, 204, 0.1), transparent);
+  }
+
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+
+  ::selection { background: #00ffcc; color: #01040a; }
+}
+
+@layer utilities {
+  .glass {
+    background: linear-gradient(135deg, rgba(167, 243, 208, 0.03), rgba(15, 118, 110, 0.08));
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid rgba(0, 255, 204, 0.15);
+  }
+  .glass-strong {
+    background: linear-gradient(135deg, rgba(167, 243, 208, 0.07), rgba(15, 118, 110, 0.15));
+    backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(0, 255, 204, 0.25);
+  }
+  .text-gradient {
+    background: linear-gradient(120deg, #aadac9 0%, #00ffcc 50%, #0f766e 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 10s linear infinite;
+  }
+  .neon-border {
+    box-shadow:
+      inset 0 0 0 1px rgba(0, 255, 204, 0.2),
+      0 0 24px rgba(0, 255, 204, 0.25);
+  }
+  .neon-glow { box-shadow: 0 0 40px rgba(0, 255, 204, 0.4); }
+  .neon-text { text-shadow: 0 0 18px rgba(0, 255, 204, 0.5); }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(0, 255, 204, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 204, 0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  }
+
+  .hover-lift {
+    transition: transform 1s cubic-bezier(.2,.7,.2,1), box-shadow 1s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 60px -20px rgba(0, 255, 204, 0.3), 0 0 40px rgba(15, 118, 110, 0.2);
+  }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1.8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+}
