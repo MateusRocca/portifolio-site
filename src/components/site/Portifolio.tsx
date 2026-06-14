@@ -4,7 +4,7 @@ import { ExternalLink, Eye } from "lucide-react";
 'import hr from "@/assets/project-hr.jpg";'
 'import logistics from "@/assets/project-logistics.jpg";'
 
-const projects = [
+/*const projects = [
   {
     img: "sales",
     title: "Sales Performance Hub",
@@ -107,6 +107,32 @@ export function Portfolio() {
               </div>
             </article>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+*/
+
+import { Wrench } from "lucide-react";
+
+export function Portfolio() {
+  return (
+    <section id="portfolio" className="relative py-24 md:py-32">
+      <div className="absolute inset-0 grid-bg opacity-40" aria-hidden />
+
+      <div className="relative mx-auto max-w-7xl px-4">
+        <div className="flex min-h-[300px] flex-col items-center justify-center text-center">
+          <Wrench size={56} className="text-primary" />
+
+          <h2 className="mt-6 font-display text-4xl font-bold text-mint">
+            Em construção
+          </h2>
+
+          <p className="mt-4 text-muted-foreground">
+            Esta seção está sendo preparada. Em breve você poderá visualizar
+            meus projetos e soluções desenvolvidas.
+          </p>
         </div>
       </div>
     </section>

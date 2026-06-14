@@ -92,7 +92,7 @@ export function Experience() {
         <div className="mt-16 flex flex-col items-center gap-3 md:flex-row md:justify-center">
           
           <a
-            href="/curriculo-pt.pdf"
+            href="/Mateus-Rocca-BR.pdf"
             download
             className="rounded-xl border border-primary px-5 py-2 text-sm font-medium text-primary hover:bg-primary hover:text-black transition"
           >
@@ -100,7 +100,7 @@ export function Experience() {
           </a>
 
           <a
-            href="/curriculo-en.pdf"
+            href="/Mateus-Rocca-EN.pdf"
             download
             className="rounded-xl border border-primary px-5 py-2 text-sm font-medium text-primary hover:bg-primary hover:text-black transition"
           >
