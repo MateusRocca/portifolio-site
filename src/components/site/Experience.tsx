@@ -11,7 +11,7 @@ const items = [
   {
     company: "Unicesumar",
     role: "Analise e Desenvolvimento de Sistemas",
-    period: "2022 — 2025",
+    period: "2023 — 2025",
     activities: [
       "Graduação com base sólida em lógica de programação, estruturação e modelagem de dados, bancos de dados relacionais e engenharia de software. O curso desenvolve uma visão prática de construção de sistemas, integração de tecnologias e resolução de problemas computacionais, permitindo adaptação para áreas como automação, desenvolvimento de software e análise de dados.",
     ],
